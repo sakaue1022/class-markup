@@ -1,0 +1,538 @@
+@charset "UTF-8";
+
+/* ========================================
+   1. 変数
+======================================== */
+
+/* 色 */
+$color-blue: #2eb5dc;
+$color-dark: #292f3a;
+$color-white: #ffffff;
+$color-gray: #999999;
+$color-pink: #ff0054;
+$color-black: #111111;
+$color-line: #168dff;
+
+/* フォント */
+$font-base: Arial, Helvetica, sans-serif;
+$font-heading: Georgia, "Times New Roman", serif;
+
+/* 文字設定 */
+$font-size-base: 13px;
+$line-height-base: calc(21 / 13);
+$letter-spacing-base: 0.2px;
+
+/* コンテンツ幅 */
+$content-width: 960px;
+
+
+/* ========================================
+   2. mixin
+======================================== */
+
+@mixin inner($width: $content-width) {
+    width: min(calc(100% - 40px), $width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin section-title-line {
+    &::after {
+        content: "";
+        display: block;
+        width: 90px;
+        height: 2px;
+        margin-top: 13px;
+        background-color: $color-blue;
+    }
+}
+
+
+/* ========================================
+   3. 共通設定
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: $color-dark;
+    background-color: $color-white;
+    font-family: $font-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-base;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.inner {
+    @include inner;
+}
+
+
+/* ========================================
+   4. ヘッダー
+======================================== */
+
+.header {
+    background-color: $color-white;
+
+    &__inner {
+        display: flex;
+        height: 88px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        color: $color-black;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0;
+    }
+
+    &__logo-icon {
+        margin-right: 5px;
+        color: $color-black;
+    }
+
+    &__logo-blue {
+        color: #00a9f4;
+    }
+}
+
+
+/* ========================================
+   5. ナビゲーション
+======================================== */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    &__link {
+        color: $color-black;
+        font-weight: 700;
+        letter-spacing: 0;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $color-blue;
+        }
+    }
+}
+
+
+/* ========================================
+   6. 共通見出し
+======================================== */
+
+.section-title {
+    @include section-title-line;
+
+    margin: 0;
+    font-family: $font-heading;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: calc(30 / 24);
+    letter-spacing: calc(5 / 10);
+
+    &--center {
+        text-align: center;
+
+        &::after {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
+
+
+/* ========================================
+   7. ボタン
+======================================== */
+
+.button {
+    display: flex;
+    width: 155px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: $color-white;
+    background-color: $color-blue;
+    font-weight: 700;
+    letter-spacing: 0;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: darken($color-blue, 10%);
+    }
+
+    &--pink {
+        background-color: $color-pink;
+
+        &:hover {
+            background-color: darken($color-pink, 10%);
+        }
+    }
+}
+
+
+/* ========================================
+   8. index：Welcome
+======================================== */
+
+.welcome {
+    padding: 45px 0 77px;
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1.2fr 0.95fr;
+        align-items: center;
+        gap: 60px;
+    }
+
+    &__content {
+        min-width: 0;
+    }
+
+    &__text {
+        margin: 39px 0 42px;
+        color: $color-gray;
+        line-height: calc(21 / 13);
+        letter-spacing: calc(2 / 10);
+    }
+
+    &__visual {
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 288px;
+        object-fit: cover;
+    }
+
+    &__caption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 17px 10px;
+        color: $color-white;
+        background-color: rgb(25 30 38 / 85%);
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+}
+
+
+/* ========================================
+   9. index：Meet Our Team
+======================================== */
+
+.team {
+    padding: 75px 0 76px;
+    border-top: 2px solid $color-line;
+    border-bottom: 2px solid $color-line;
+    color: $color-white;
+    background-color: $color-dark;
+
+    &__description {
+        margin: 39px 0 58px;
+        color: #d5d6d9;
+        text-align: center;
+        line-height: calc(21 / 13);
+        letter-spacing: calc(2 / 10);
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 23px;
+    }
+
+    &__item {
+        min-width: 0;
+        text-align: center;
+    }
+
+    &__image {
+        width: 100%;
+        height: 294px;
+        object-fit: cover;
+    }
+
+    &__name {
+        margin: 16px 0 8px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: calc(24 / 18);
+        letter-spacing: 0;
+    }
+
+    &__role {
+        margin: 0;
+        color: $color-pink;
+        font-weight: 700;
+        letter-spacing: calc(3 / 10);
+    }
+}
+
+
+/* ========================================
+   10. about：Our Classes
+======================================== */
+
+.classes {
+    padding: 42px 0 75px;
+
+    &__description {
+        margin: 38px 0 26px;
+        color: $color-gray;
+        text-align: center;
+        line-height: calc(21 / 13);
+    }
+
+    &__subtext {
+        margin: 0 0 59px;
+        border-top: 2px solid $color-line;
+        border-bottom: 2px solid $color-line;
+        color: $color-gray;
+        line-height: 1;
+        overflow-wrap: anywhere;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    &__item {
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 224px;
+        object-fit: cover;
+    }
+
+    &__name {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 16px 5px;
+        color: $color-white;
+        background-color: rgb(25 30 38 / 78%);
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: calc(24 / 18);
+    }
+
+    &__button-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 45px;
+    }
+}
+
+
+/* ========================================
+   11. about：Testimonials
+======================================== */
+
+.testimonials {
+    padding: 74px 0 75px;
+    color: $color-white;
+    background-color: $color-dark;
+
+    &__description {
+        margin: 39px 0 58px;
+        color: $color-white;
+        text-align: center;
+        line-height: calc(21 / 13);
+    }
+
+    &__person {
+        text-align: center;
+    }
+
+    &__image {
+        width: 83px;
+        height: 83px;
+        margin: 0 auto 18px;
+        border: 2px solid $color-blue;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__name {
+        margin: 0 0 8px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: calc(24 / 18);
+    }
+
+    &__role {
+        margin: 0;
+        color: $color-pink;
+        font-weight: 700;
+        letter-spacing: calc(3 / 10);
+    }
+}
+
+
+/* ========================================
+   12. フッター
+======================================== */
+
+.footer {
+    display: flex;
+    min-height: 103px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: $color-white;
+    background-color: $color-blue;
+
+    &__copyright {
+        margin: 0;
+        font-size: 10px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+}
+
+
+/* ========================================
+   13. スマートフォン対応
+======================================== */
+
+@media (max-width: 700px) {
+    .header {
+        &__inner {
+            height: auto;
+            min-height: 88px;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 10px 18px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .welcome {
+        padding: 40px 0 50px;
+
+        &__inner {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        &__text {
+            margin: 25px 0 30px;
+        }
+
+        &__image {
+            height: auto;
+            aspect-ratio: 1.35 / 1;
+        }
+    }
+
+    .team {
+        padding: 50px 0;
+
+        &__description {
+            margin: 30px 0 35px;
+            text-align: left;
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        &__image {
+            height: auto;
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    .classes {
+        padding: 40px 0 50px;
+
+        &__description {
+            margin: 30px 0 24px;
+        }
+
+        &__subtext {
+            margin-bottom: 35px;
+            line-height: 1.5;
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        &__image {
+            height: auto;
+            aspect-ratio: 1.35 / 1;
+        }
+    }
+
+    .testimonials {
+        padding: 50px 0;
+
+        &__description {
+            margin: 30px 0 40px;
+            text-align: left;
+        }
+    }
+}

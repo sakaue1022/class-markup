@@ -1,0 +1,472 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #292f3a;
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.6153846154;
+  letter-spacing: 0.2px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inner {
+  width: min(100% - 40px, 960px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header {
+  background-color: #ffffff;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__logo {
+  display: flex;
+  margin-right: auto;
+  flex-shrink: 0;
+  color: #111111;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.header__logo-icon {
+  margin-right: 5px;
+  color: #111111;
+}
+
+.header__logo-blue {
+  color: #00a9f4;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.nav__link:hover {
+  color: #2eb5dc;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 2px;
+  margin-top: 13px;
+  background-color: #2eb5dc;
+}
+
+.section-title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.5;
+}
+
+.section-title--center {
+  text-align: center;
+}
+
+.section-title--center::after {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ========================================
+   7. ボタン
+======================================== */
+.button {
+  display: flex;
+  width: 155px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #2eb5dc;
+  font-weight: 700;
+  letter-spacing: 0;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: rgb(30.8401639344, 149.7950819672, 184.1598360656);
+}
+
+.button--pink {
+  background-color: #ff0054;
+}
+
+.button--pink:hover {
+  background-color: rgb(204, 0, 67.2);
+}
+
+/* ========================================
+   8. index：Welcome
+======================================== */
+.welcome {
+  padding: 45px 0 77px;
+}
+
+.welcome__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.welcome__content {
+  min-width: 0;
+}
+
+.welcome__text {
+  margin: 39px 0 42px;
+  color: #999999;
+  line-height: 1.6153846154;
+  letter-spacing: 0.2;
+}
+
+.welcome__visual {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.welcome__image {
+  width: 100%;
+  height: 288px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.welcome__caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 17px 10px;
+  color: #ffffff;
+  background-color: rgba(25, 30, 38, 0.85);
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+/* ========================================
+   9. index：Meet Our Team
+======================================== */
+.team {
+  padding: 75px 0 76px;
+  border-top: 2px solid #168dff;
+  border-bottom: 2px solid #168dff;
+  color: #ffffff;
+  background-color: #292f3a;
+}
+
+.team__description {
+  margin: 39px 0 58px;
+  color: #d5d6d9;
+  text-align: center;
+  line-height: 1.6153846154;
+  letter-spacing: 0.2;
+}
+
+.team__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.team__item {
+  min-width: 0;
+  text-align: center;
+}
+
+.team__image {
+  width: 100%;
+  height: 294px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.team__name {
+  margin: 16px 0 8px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  letter-spacing: 0;
+}
+
+.team__role {
+  margin: 0;
+  color: #ff0054;
+  font-weight: 700;
+  letter-spacing: 0.3;
+}
+
+/* ========================================
+   10. about：Our Classes
+======================================== */
+.classes {
+  padding: 42px 0 75px;
+}
+
+.classes__description {
+  margin: 38px 0 26px;
+  color: #999999;
+  text-align: center;
+  line-height: 1.6153846154;
+}
+
+.classes__subtext {
+  margin: 0 0 59px;
+  border-top: 2px solid #168dff;
+  border-bottom: 2px solid #168dff;
+  color: #999999;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.classes__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.classes__item {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.classes__image {
+  width: 100%;
+  height: 224px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.classes__name {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 16px 5px;
+  color: #ffffff;
+  background-color: rgba(25, 30, 38, 0.78);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3333333333;
+}
+
+.classes__button-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+/* ========================================
+   11. about：Testimonials
+======================================== */
+.testimonials {
+  padding: 74px 0 75px;
+  color: #ffffff;
+  background-color: #292f3a;
+}
+
+.testimonials__description {
+  margin: 39px 0 58px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.6153846154;
+}
+
+.testimonials__person {
+  text-align: center;
+}
+
+.testimonials__image {
+  width: 83px;
+  height: 83px;
+  margin: 0 auto 18px;
+  border: 2px solid #2eb5dc;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.testimonials__name {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3333333333;
+}
+
+.testimonials__role {
+  margin: 0;
+  color: #ff0054;
+  font-weight: 700;
+  letter-spacing: 0.3;
+}
+
+/* ========================================
+   12. フッター
+======================================== */
+.footer {
+  display: flex;
+  min-height: 103px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #ffffff;
+  background-color: #2eb5dc;
+}
+
+.footer__copyright {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* ========================================
+   13. スマートフォン対応
+======================================== */
+@media (max-width: 700px) {
+  .header__inner {
+    height: auto;
+    min-height: 88px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .welcome {
+    padding: 40px 0 50px;
+  }
+
+  .welcome__inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .welcome__text {
+    margin: 25px 0 30px;
+  }
+
+  .welcome__image {
+    height: auto;
+    aspect-ratio: 1.35/1;
+  }
+
+  .team {
+    padding: 50px 0;
+  }
+
+  .team__description {
+    margin: 30px 0 35px;
+    text-align: left;
+  }
+
+  .team__list {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .team__image {
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  .classes {
+    padding: 40px 0 50px;
+  }
+
+  .classes__description {
+    margin: 30px 0 24px;
+  }
+
+  .classes__subtext {
+    margin-bottom: 35px;
+    line-height: 1.5;
+  }
+
+  .classes__list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .classes__image {
+    height: auto;
+    aspect-ratio: 1.35/1;
+  }
+
+  .testimonials {
+    padding: 50px 0;
+  }
+
+  .testimonials__description {
+    margin: 30px 0 40px;
+    text-align: left;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
