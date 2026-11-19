@@ -1,0 +1,308 @@
+@use "sass:math";
+@use "sass:map";
+
+$breakpoint: 700px;
+$color-accent: #ff2b83;
+$color-text: #222;
+$color-muted: #f3f3f3;
+$color-footer: #292929;
+
+@mixin mq($width: $breakpoint) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: $color-text;
+  font-family: Arial, "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site {
+  width: min(100%, 62.5rem);
+  margin-inline: auto;
+}
+
+.header {
+  min-height: 3.9rem;
+  padding: 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    color: #222;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    &--active {
+      color: $color-accent;
+    }
+  }
+}
+
+.hero {
+  width: 100%;
+
+  &__picture,
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  img {
+    aspect-ratio: 2.5 / 1;
+    object-fit: cover;
+  }
+}
+
+.section {
+  padding: 3.75rem 2rem 4rem;
+
+  &__inner {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  &__title {
+    margin: 0;
+    color: #111;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+   &__rule {
+    width: 3.3rem;
+    height: 0.1rem;
+    margin: 0.75rem auto 2rem;
+    background: $color-accent;
+  }
+}
+
+.philosophy {
+  min-height: 16.5rem;
+  padding-top: 2.9rem;
+  padding-bottom: 3.5rem;
+
+  &__text {
+    max-width: 35rem;
+    margin-bottom:4rem;
+    margin-inline: auto;
+    font-size: 0.875rem;
+    line-height: 2.4;
+    text-align: center;
+
+    p {
+      margin: 0 0 1.3rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.works {
+  background: $color-muted;
+  padding-top: 3.8rem;
+  padding-bottom: 4.8rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+    gap: 3.125rem;
+    align-items: start;
+  }
+}
+
+.work-card {
+  min-width: 0;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1.45 / 1;
+    object-fit: cover;
+  }
+
+  &__title {
+    margin:1.5rem 0;
+    color: #111;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    font-weight:bold;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+}
+
+.hours {
+  padding-top: 3.8rem;
+  padding-bottom: 4rem;
+
+  &__table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    margin-inline: auto;
+  }
+
+  &__table {
+    width: 100%;
+    min-width: 31rem;
+    border-collapse: collapse;
+    font-size: 0.58rem;
+    text-align: center;
+
+    th,
+    td {
+      border: 1px solid #999;
+      padding: 0.35rem 0.45rem;
+      white-space: nowrap;
+      font-size:0.875rem;
+    }
+
+    thead th,
+    tbody th {
+      background: #eceef0;
+      font-weight: 700;
+      text-align:center;
+    }
+
+    thead th:first-child,
+    tbody th {
+      width: 20%;
+    }
+  }
+}
+
+.footer {
+  min-height: 5.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-footer;
+  color: #fff;
+
+  &__copyright {
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+}
+
+.pc-only {
+  display: inline;
+}
+
+@include mq {
+  .site {
+    width: 100%;
+    border-inline: 0;
+  }
+
+  .header {
+    min-height: 3.8rem;
+    padding-inline: 1.1rem;
+  }
+
+  .nav__list {
+    gap: 0.7rem;
+  }
+
+  .nav__link {
+    font-size: 0.5rem;
+  }
+
+  .hero img {
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .section {
+    padding: 2.8rem 1.1rem 3.2rem;
+  }
+
+  .section__title {
+    font-size: 1.15rem;
+  }
+
+  .philosophy {
+    min-height: auto;
+    padding-top: 2.8rem;
+
+    &__text {
+      font-size: 0.72rem;
+      line-height: 2.2;
+      text-align: left;
+    }
+  }
+
+  .pc-only {
+    display: none;
+  }
+
+  .works__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1.8rem 1rem;
+  }
+
+  .work-card__title {
+    font-size: 0.85rem;
+  }
+
+  .work-card__description {
+    font-size: 0.72rem;
+  }
+
+  .hours__table {
+    min-width: 34rem;
+  }
+
+  .footer {
+    min-height: 4.5rem;
+    font-size:0.75rem;
+  }
+}

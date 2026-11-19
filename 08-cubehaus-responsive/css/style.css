@@ -1,0 +1,258 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #222;
+  font-family: Arial, "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site {
+  width: min(100%, 62.5rem);
+  margin-inline: auto;
+}
+
+.header {
+  min-height: 3.9rem;
+  padding: 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav__link {
+  color: #222;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.nav__link--active {
+  color: #ff2b83;
+}
+
+.hero {
+  width: 100%;
+}
+.hero__picture,
+.hero img {
+  display: block;
+  width: 100%;
+}
+.hero img {
+  aspect-ratio: 2.5/1;
+  object-fit: cover;
+}
+
+.section {
+  padding: 3.75rem 2rem 4rem;
+}
+.section__inner {
+  width: 100%;
+  margin-inline: auto;
+}
+.section__title {
+  margin: 0;
+  color: #111;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+.section__rule {
+  width: 3.3rem;
+  height: 0.1rem;
+  margin: 0.75rem auto 2rem;
+  background: #ff2b83;
+}
+
+.philosophy {
+  min-height: 16.5rem;
+  padding-top: 2.9rem;
+  padding-bottom: 3.5rem;
+}
+.philosophy__text {
+  max-width: 35rem;
+  margin-bottom: 4rem;
+  margin-inline: auto;
+  font-size: 0.875rem;
+  line-height: 2.4;
+  text-align: center;
+}
+.philosophy__text p {
+  margin: 0 0 1.3rem;
+}
+.philosophy__text p:last-child {
+  margin-bottom: 0;
+}
+
+.works {
+  background: #f3f3f3;
+  padding-top: 3.8rem;
+  padding-bottom: 4.8rem;
+}
+.works__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 3.125rem;
+  align-items: start;
+}
+
+.work-card {
+  min-width: 0;
+}
+.work-card__image {
+  width: 100%;
+  aspect-ratio: 1.45/1;
+  object-fit: cover;
+}
+.work-card__title {
+  margin: 1.5rem 0;
+  color: #111;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+.work-card__description {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.hours {
+  padding-top: 3.8rem;
+  padding-bottom: 4rem;
+}
+.hours__table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  margin-inline: auto;
+}
+.hours__table {
+  width: 100%;
+  min-width: 31rem;
+  border-collapse: collapse;
+  font-size: 0.58rem;
+  text-align: center;
+}
+.hours__table th,
+.hours__table td {
+  border: 1px solid #999;
+  padding: 0.35rem 0.45rem;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+.hours__table thead th,
+.hours__table tbody th {
+  background: #eceef0;
+  font-weight: 700;
+  text-align: center;
+}
+.hours__table thead th:first-child,
+.hours__table tbody th {
+  width: 20%;
+}
+
+.footer {
+  min-height: 5.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #292929;
+  color: #fff;
+}
+.footer__copyright {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.pc-only {
+  display: inline;
+}
+
+@media screen and (max-width: 700px) {
+  .site {
+    width: 100%;
+    border-inline: 0;
+  }
+  .header {
+    min-height: 3.8rem;
+    padding-inline: 1.1rem;
+  }
+  .nav__list {
+    gap: 0.7rem;
+  }
+  .nav__link {
+    font-size: 0.5rem;
+  }
+  .hero img {
+    aspect-ratio: 1.5/1;
+  }
+  .section {
+    padding: 2.8rem 1.1rem 3.2rem;
+  }
+  .section__title {
+    font-size: 1.15rem;
+  }
+  .philosophy {
+    min-height: auto;
+    padding-top: 2.8rem;
+  }
+  .philosophy__text {
+    font-size: 0.72rem;
+    line-height: 2.2;
+    text-align: left;
+  }
+  .pc-only {
+    display: none;
+  }
+  .works__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1.8rem 1rem;
+  }
+  .work-card__title {
+    font-size: 0.85rem;
+  }
+  .work-card__description {
+    font-size: 0.72rem;
+  }
+  .hours__table {
+    min-width: 34rem;
+  }
+  .footer {
+    min-height: 4.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
